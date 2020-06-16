@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v1 as uuidv1 } from "uuid";
 import NewSongForm from "./NewSongForm";
 
@@ -8,9 +8,16 @@ const SongList = () => {
     { title: "incomplete", id: 2 },
     { title: "sangria wine", id: 3 },
   ]);
+  const [age, setAge] = useState(20);
+
+  useEffect(() => {
+    console.log(songs);
+  }, [songs]);
+
   const addSong = (title) => {
     setSongs([...songs, { title, id: uuidv1() }]);
   };
+
   return (
     <div className='song - list'>
       <ul>
